@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{{game.title}}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initital-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Miika Nissi">
+    <meta name="description" content="Game demo for Django.">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+    <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}"/>
+  
+    <style>
+    body
+    {
+      background-image: url("{{scene.background_image.url}}");
+    } 
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="text">{{scene.description}}</div>
+      <form method="POST" action=""/>
+        {% csrf_token %}
+        <div id="option-buttons" class="btn-grid">
+          {% for answer in answerlist %}
+          <button type="submit" name="answer" class="btn" value="{{answer.next_scene_id}}">{{answer.answer}}</button>
+          {% endfor %}
+        </div>
+        <input type="hidden" value="" name="scene_name"/>
+      </form>
+    </body>
+</html>
+
