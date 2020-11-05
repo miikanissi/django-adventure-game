@@ -2,8 +2,8 @@ from django.db import models
 
 
 class Scene(models.Model):
-    title = models.CharField(max_length=200)
-    description = models.CharField(max_length=1000)
+    title = models.CharField(max_length=200, unique=True)
+    description = models.TextField(max_length=1000)
     background_image = models.ImageField(max_length=255, blank=True, default='', upload_to='images/')
 
     def __str__(self):
@@ -11,7 +11,8 @@ class Scene(models.Model):
 
 
 class Game(models.Model):
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True)
     first_scene = models.ForeignKey(Scene, on_delete=models.CASCADE)
 
     def __str__(self):

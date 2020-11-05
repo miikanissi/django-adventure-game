@@ -21,7 +21,11 @@
   </head>
   <body>
     <div class="container">
-      <div id="text">{{scene.description}}</div>
+      <div class="menu-container">
+        <a class="menu-button" href="https://miikanissi.com">miikanissi.com</a>
+        <a class="menu-button" href="{% url 'index' %}">Menu</a>
+      </div>  
+      <div id="text">{{scene.description | linebreaks}}</div>
       <form method="POST" action=""/>
         {% csrf_token %}
         <div id="option-buttons" class="btn-grid">

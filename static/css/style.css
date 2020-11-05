@@ -53,3 +53,16 @@ body {
     background-color: hsl(0, 100%, 40%);
 }
 
+.menu-container {
+}
+
+.menu-button {
+    background-color: blue;
+    border: 1px solid darkblue;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+    outline: none;
+    text-decoration:none;
+    text-align:center;
+}

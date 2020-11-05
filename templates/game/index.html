@@ -14,10 +14,13 @@
   </head>
   <body>
     <div class="container">
-      <h1 id="title">Django Game Demos</h1>
-      <div id="options-buttons" class="btn-grid">
+      <div class="menu-container">
+        <a class="menu-button" href="https://miikanissi.com">miikanissi.com</a>
+      </div>  
+      <h1 id="title">Django Games</h1>
+      <div class="btn-grid">
         {% for game in game_list %}
-        <a class="btn" href="/{{game.title}}">{{game.title}}</a>
+        <a class="btn" href="{% url 'game' game.slug %}">{{game.title}}</a>
         {% endfor %}
       </div>
     </div>
